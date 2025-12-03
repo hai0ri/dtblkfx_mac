@@ -1,4 +1,6 @@
-# DtBlkFx (macOS Universal Edition)
+
+# DtBlkFx (macOS Universal Edition)<img width="1280" height="720" alt="dtblk" src="https://github.com/user-attachments/assets/a1c9232e-b093-4b48-aa10-92aa534abed4" />
+
 
 **DtBlkFx** is a Fast Fourier Transform (FFT) based VST plug-in for macOS, originally created by Darrell Tam and updated for modern macOS (Universal Binary) and JUCE by haiori.
 
