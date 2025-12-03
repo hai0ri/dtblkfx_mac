@@ -1,0 +1,656 @@
+[  3%] Building CXX object CMakeFiles/DtBlkFx.dir/src/DtBlkFxProcessor.cpp.o
+In file included from /Users/thomashamori/dtblkfx_mac/src/DtBlkFxProcessor.cpp:20:
+In file included from /Users/thomashamori/dtblkfx_mac/src/DtBlkFxProcessor.h:22:
+In file included from /Users/thomashamori/dtblkfx_mac/src/core/DtBlkFx.hpp:26:
+/Users/thomashamori/dtblkfx_mac/src/core/vst2_stub.h:53:38: warning: unused parameter 'index' [-Wunused-parameter]
+  virtual void setParameter(VstInt32 index, float value) {}
+                                     ^
+/Users/thomashamori/dtblkfx_mac/src/core/vst2_stub.h:53:51: warning: unused parameter 'value' [-Wunused-parameter]
+  virtual void setParameter(VstInt32 index, float value) {}
+                                                  ^
+/Users/thomashamori/dtblkfx_mac/src/core/vst2_stub.h:54:39: warning: unused parameter 'index' [-Wunused-parameter]
+  virtual float getParameter(VstInt32 index) { return 0.0f; }
+                                      ^
+/Users/thomashamori/dtblkfx_mac/src/core/vst2_stub.h:55:36: warning: unused parameter 'program' [-Wunused-parameter]
+  virtual void setProgram(VstInt32 program) {}
+                                   ^
+/Users/thomashamori/dtblkfx_mac/src/core/vst2_stub.h:56:37: warning: unused parameter 'name' [-Wunused-parameter]
+  virtual void setProgramName(char* name) {}
+                                    ^
+/Users/thomashamori/dtblkfx_mac/src/core/vst2_stub.h:57:37: warning: unused parameter 'name' [-Wunused-parameter]
+  virtual void getProgramName(char* name) {}
+                                    ^
+/Users/thomashamori/dtblkfx_mac/src/core/vst2_stub.h:58:47: warning: unused parameter 'category' [-Wunused-parameter]
+  virtual bool getProgramNameIndexed(VstInt32 category, VstInt32 index, char* text)
+                                              ^
+/Users/thomashamori/dtblkfx_mac/src/core/vst2_stub.h:58:66: warning: unused parameter 'index' [-Wunused-parameter]
+  virtual bool getProgramNameIndexed(VstInt32 category, VstInt32 index, char* text)
+                                                                 ^
+/Users/thomashamori/dtblkfx_mac/src/core/vst2_stub.h:58:79: warning: unused parameter 'text' [-Wunused-parameter]
+  virtual bool getProgramNameIndexed(VstInt32 category, VstInt32 index, char* text)
+                                                                              ^
+/Users/thomashamori/dtblkfx_mac/src/core/vst2_stub.h:72:39: warning: parameter 'numPrograms' shadows member inherited from type 'AudioEffect' [-Wshadow-field]
+  AudioEffectX(void* audioMaster, int numPrograms, int numParams)
+                                      ^
+/Users/thomashamori/dtblkfx_mac/src/core/vst2_stub.h:66:12: note: declared here
+  VstInt32 numPrograms = 0;
+           ^
+/Users/thomashamori/dtblkfx_mac/src/core/vst2_stub.h:72:22: warning: unused parameter 'audioMaster' [-Wunused-parameter]
+  AudioEffectX(void* audioMaster, int numPrograms, int numParams)
+                     ^
+/Users/thomashamori/dtblkfx_mac/src/core/vst2_stub.h:72:56: warning: unused parameter 'numParams' [-Wunused-parameter]
+  AudioEffectX(void* audioMaster, int numPrograms, int numParams)
+                                                       ^
+/Users/thomashamori/dtblkfx_mac/src/core/vst2_stub.h:80:38: warning: unused parameter 'blockSize' [-Wunused-parameter]
+  virtual void setBlockSize(VstInt32 blockSize) {}
+                                     ^
+/Users/thomashamori/dtblkfx_mac/src/core/vst2_stub.h:81:36: warning: declaration shadows a field of 'AudioEffectX' [-Wshadow]
+  virtual void setSampleRate(float sampleRate) { this->sampleRate = sampleRate; }
+                                   ^
+/Users/thomashamori/dtblkfx_mac/src/core/vst2_stub.h:94:9: note: previous declaration is here
+  float sampleRate = 44100.0f;
+        ^
+/Users/thomashamori/dtblkfx_mac/src/core/vst2_stub.h:83:36: warning: unused parameter 'data' [-Wunused-parameter]
+  virtual VstInt32 getChunk(void** data, bool isPreset = false) { return 0; }
+                                   ^
+/Users/thomashamori/dtblkfx_mac/src/core/vst2_stub.h:83:47: warning: unused parameter 'isPreset' [-Wunused-parameter]
+  virtual VstInt32 getChunk(void** data, bool isPreset = false) { return 0; }
+                                              ^
+/Users/thomashamori/dtblkfx_mac/src/core/vst2_stub.h:84:35: warning: unused parameter 'data' [-Wunused-parameter]
+  virtual VstInt32 setChunk(void* data, VstInt32 byteSize, bool isPreset = false) { return 0; }
+                                  ^
+/Users/thomashamori/dtblkfx_mac/src/core/vst2_stub.h:84:50: warning: unused parameter 'byteSize' [-Wunused-parameter]
+  virtual VstInt32 setChunk(void* data, VstInt32 byteSize, bool isPreset = false) { return 0; }
+                                                 ^
+/Users/thomashamori/dtblkfx_mac/src/core/vst2_stub.h:84:65: warning: unused parameter 'isPreset' [-Wunused-parameter]
+  virtual VstInt32 setChunk(void* data, VstInt32 byteSize, bool isPreset = false) { return 0; }
+                                                                ^
+/Users/thomashamori/dtblkfx_mac/src/core/vst2_stub.h:86:36: warning: unused parameter 'name' [-Wunused-parameter]
+  virtual bool getEffectName(char* name) { return false; }
+                                   ^
+/Users/thomashamori/dtblkfx_mac/src/core/vst2_stub.h:87:38: warning: unused parameter 'text' [-Wunused-parameter]
+  virtual bool getVendorString(char* text) { return false; }
+                                     ^
+/Users/thomashamori/dtblkfx_mac/src/core/vst2_stub.h:88:39: warning: unused parameter 'text' [-Wunused-parameter]
+  virtual bool getProductString(char* text) { return false; }
+                                      ^
+/Users/thomashamori/dtblkfx_mac/src/core/vst2_stub.h:92:45: warning: unused parameter 'filter' [-Wunused-parameter]
+  virtual VstTimeInfo* getTimeInfo(VstInt32 filter) { return &timeInfo; }
+                                            ^
+/Users/thomashamori/dtblkfx_mac/src/core/vst2_stub.h:98:25: warning: unused parameter 'n' [-Wunused-parameter]
+  void setNumInputs(int n) {}
+                        ^
+/Users/thomashamori/dtblkfx_mac/src/core/vst2_stub.h:99:26: warning: unused parameter 'n' [-Wunused-parameter]
+  void setNumOutputs(int n) {}
+                         ^
+/Users/thomashamori/dtblkfx_mac/src/core/vst2_stub.h:100:24: warning: unused parameter 'id' [-Wunused-parameter]
+  void setUniqueID(int id) {}
+                       ^
+/Users/thomashamori/dtblkfx_mac/src/core/vst2_stub.h:101:33: warning: unused parameter 'b' [-Wunused-parameter]
+  void canProcessReplacing(bool b) {}
+                                ^
+/Users/thomashamori/dtblkfx_mac/src/core/vst2_stub.h:102:31: warning: unused parameter 'b' [-Wunused-parameter]
+  void programsAreChunks(bool b) {}
+                              ^
+/Users/thomashamori/dtblkfx_mac/src/core/vst2_stub.h:103:21: warning: unused parameter 'b' [-Wunused-parameter]
+  void isSynth(bool b) {}
+                    ^
+/Users/thomashamori/dtblkfx_mac/src/core/vst2_stub.h:106:28: warning: unused parameter 'delay' [-Wunused-parameter]
+  void setInitialDelay(int delay) {}
+                           ^
+In file included from /Users/thomashamori/dtblkfx_mac/src/DtBlkFxProcessor.cpp:20:
+In file included from /Users/thomashamori/dtblkfx_mac/src/DtBlkFxProcessor.h:22:
+In file included from /Users/thomashamori/dtblkfx_mac/src/core/DtBlkFx.hpp:28:
+In file included from /Users/thomashamori/dtblkfx_mac/src/core/BlkFxParam.h:24:
+In file included from /Users/thomashamori/dtblkfx_mac/src/core/NoteFreq.h:19:
+/Users/thomashamori/dtblkfx_mac/src/core/misc_stuff.h:194:16: warning: 'OSAtomicIncrement32Barrier' is deprecated: first deprecated in macOS 10.12 - Use std::atomic_fetch_add() from <atomic> instead [-Wdeprecated-declarations]
+  return (long)OSAtomicIncrement32Barrier((int32_t*)v);
+               ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/libkern/OSAtomicDeprecated.h:183:9: note: 'OSAtomicIncrement32Barrier' has been explicitly marked deprecated here
+int32_t OSAtomicIncrement32Barrier( volatile int32_t *__theValue );
+        ^
+In file included from /Users/thomashamori/dtblkfx_mac/src/DtBlkFxProcessor.cpp:20:
+In file included from /Users/thomashamori/dtblkfx_mac/src/DtBlkFxProcessor.h:22:
+In file included from /Users/thomashamori/dtblkfx_mac/src/core/DtBlkFx.hpp:28:
+In file included from /Users/thomashamori/dtblkfx_mac/src/core/BlkFxParam.h:24:
+In file included from /Users/thomashamori/dtblkfx_mac/src/core/NoteFreq.h:19:
+/Users/thomashamori/dtblkfx_mac/src/core/misc_stuff.h:198:16: warning: 'OSAtomicDecrement32Barrier' is deprecated: first deprecated in macOS 10.12 - Use std::atomic_fetch_sub() from <atomic> instead [-Wdeprecated-declarations]
+  return (long)OSAtomicDecrement32Barrier((int32_t*)v);
+               ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/libkern/OSAtomicDeprecated.h:202:9: note: 'OSAtomicDecrement32Barrier' has been explicitly marked deprecated here
+int32_t OSAtomicDecrement32Barrier( volatile int32_t *__theValue );
+        ^
+In file included from /Users/thomashamori/dtblkfx_mac/src/DtBlkFxProcessor.cpp:20:
+In file included from /Users/thomashamori/dtblkfx_mac/src/DtBlkFxProcessor.h:22:
+In file included from /Users/thomashamori/dtblkfx_mac/src/core/DtBlkFx.hpp:28:
+In file included from /Users/thomashamori/dtblkfx_mac/src/core/BlkFxParam.h:24:
+In file included from /Users/thomashamori/dtblkfx_mac/src/core/NoteFreq.h:19:
+/Users/thomashamori/dtblkfx_mac/src/core/misc_stuff.h:214:3: warning: 'OSSpinLock' is deprecated: first deprecated in macOS 10.12 - Use os_unfair_lock() from <os/lock.h> instead [-Wdeprecated-declarations]
+  OSSpinLock sl;
+  ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/libkern/OSSpinLockDeprecated.h:79:17: note: 'OSSpinLock' has been explicitly marked deprecated here
+typedef int32_t OSSpinLock OSSPINLOCK_DEPRECATED_REPLACE_WITH(os_unfair_lock);
+                ^
+In file included from /Users/thomashamori/dtblkfx_mac/src/DtBlkFxProcessor.cpp:20:
+In file included from /Users/thomashamori/dtblkfx_mac/src/DtBlkFxProcessor.h:22:
+In file included from /Users/thomashamori/dtblkfx_mac/src/core/DtBlkFx.hpp:28:
+In file included from /Users/thomashamori/dtblkfx_mac/src/core/BlkFxParam.h:24:
+In file included from /Users/thomashamori/dtblkfx_mac/src/core/NoteFreq.h:19:
+/Users/thomashamori/dtblkfx_mac/src/core/misc_stuff.h:218:12: warning: 'OSSpinLock' is deprecated: first deprecated in macOS 10.12 - Use os_unfair_lock() from <os/lock.h> instead [-Wdeprecated-declarations]
+  operator OSSpinLock*() { return &sl; }
+           ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/libkern/OSSpinLockDeprecated.h:79:17: note: 'OSSpinLock' has been explicitly marked deprecated here
+typedef int32_t OSSpinLock OSSPINLOCK_DEPRECATED_REPLACE_WITH(os_unfair_lock);
+                ^
+In file included from /Users/thomashamori/dtblkfx_mac/src/DtBlkFxProcessor.cpp:20:
+In file included from /Users/thomashamori/dtblkfx_mac/src/DtBlkFxProcessor.h:22:
+In file included from /Users/thomashamori/dtblkfx_mac/src/core/DtBlkFx.hpp:28:
+In file included from /Users/thomashamori/dtblkfx_mac/src/core/BlkFxParam.h:24:
+In file included from /Users/thomashamori/dtblkfx_mac/src/core/NoteFreq.h:19:
+/Users/thomashamori/dtblkfx_mac/src/core/misc_stuff.h:216:17: warning: 'OSSpinLockLock' is deprecated: first deprecated in macOS 10.12 - Use os_unfair_lock_lock() from <os/lock.h> instead [-Wdeprecated-declarations]
+  void lock() { OSSpinLockLock(&sl); }
+                ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/libkern/OSSpinLockDeprecated.h:99:9: note: 'OSSpinLockLock' has been explicitly marked deprecated here
+void    OSSpinLockLock( volatile OSSpinLock *__lock );
+        ^
+In file included from /Users/thomashamori/dtblkfx_mac/src/DtBlkFxProcessor.cpp:20:
+In file included from /Users/thomashamori/dtblkfx_mac/src/DtBlkFxProcessor.h:22:
+In file included from /Users/thomashamori/dtblkfx_mac/src/core/DtBlkFx.hpp:28:
+In file included from /Users/thomashamori/dtblkfx_mac/src/core/BlkFxParam.h:24:
+In file included from /Users/thomashamori/dtblkfx_mac/src/core/NoteFreq.h:19:
+/Users/thomashamori/dtblkfx_mac/src/core/misc_stuff.h:217:19: warning: 'OSSpinLockUnlock' is deprecated: first deprecated in macOS 10.12 - Use os_unfair_lock_unlock() from <os/lock.h> instead [-Wdeprecated-declarations]
+  void unlock() { OSSpinLockUnlock(&sl); }
+                  ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/libkern/OSSpinLockDeprecated.h:105:9: note: 'OSSpinLockUnlock' has been explicitly marked deprecated here
+void    OSSpinLockUnlock( volatile OSSpinLock *__lock );
+        ^
+In file included from /Users/thomashamori/dtblkfx_mac/src/DtBlkFxProcessor.cpp:20:
+In file included from /Users/thomashamori/dtblkfx_mac/src/DtBlkFxProcessor.h:22:
+In file included from /Users/thomashamori/dtblkfx_mac/src/core/DtBlkFx.hpp:28:
+In file included from /Users/thomashamori/dtblkfx_mac/src/core/BlkFxParam.h:24:
+In file included from /Users/thomashamori/dtblkfx_mac/src/core/NoteFreq.h:19:
+/Users/thomashamori/dtblkfx_mac/src/core/misc_stuff.h:224:3: warning: 'OSSpinLock' is deprecated: first deprecated in macOS 10.12 - Use os_unfair_lock() from <os/lock.h> instead [-Wdeprecated-declarations]
+  OSSpinLock* sl;
+  ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/libkern/OSSpinLockDeprecated.h:79:17: note: 'OSSpinLock' has been explicitly marked deprecated here
+typedef int32_t OSSpinLock OSSPINLOCK_DEPRECATED_REPLACE_WITH(os_unfair_lock);
+                ^
+In file included from /Users/thomashamori/dtblkfx_mac/src/DtBlkFxProcessor.cpp:20:
+In file included from /Users/thomashamori/dtblkfx_mac/src/DtBlkFxProcessor.h:22:
+In file included from /Users/thomashamori/dtblkfx_mac/src/core/DtBlkFx.hpp:28:
+In file included from /Users/thomashamori/dtblkfx_mac/src/core/BlkFxParam.h:24:
+In file included from /Users/thomashamori/dtblkfx_mac/src/core/NoteFreq.h:19:
+/Users/thomashamori/dtblkfx_mac/src/core/misc_stuff.h:225:24: warning: 'OSSpinLock' is deprecated: first deprecated in macOS 10.12 - Use os_unfair_lock() from <os/lock.h> instead [-Wdeprecated-declarations]
+  ScopeCriticalSection(OSSpinLock* sl_)
+                       ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/libkern/OSSpinLockDeprecated.h:79:17: note: 'OSSpinLock' has been explicitly marked deprecated here
+typedef int32_t OSSpinLock OSSPINLOCK_DEPRECATED_REPLACE_WITH(os_unfair_lock);
+                ^
+In file included from /Users/thomashamori/dtblkfx_mac/src/DtBlkFxProcessor.cpp:20:
+In file included from /Users/thomashamori/dtblkfx_mac/src/DtBlkFxProcessor.h:22:
+In file included from /Users/thomashamori/dtblkfx_mac/src/core/DtBlkFx.hpp:28:
+In file included from /Users/thomashamori/dtblkfx_mac/src/core/BlkFxParam.h:24:
+In file included from /Users/thomashamori/dtblkfx_mac/src/core/NoteFreq.h:19:
+/Users/thomashamori/dtblkfx_mac/src/core/misc_stuff.h:228:5: warning: 'OSSpinLockLock' is deprecated: first deprecated in macOS 10.12 - Use os_unfair_lock_lock() from <os/lock.h> instead [-Wdeprecated-declarations]
+    OSSpinLockLock(sl_);
+    ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/libkern/OSSpinLockDeprecated.h:99:9: note: 'OSSpinLockLock' has been explicitly marked deprecated here
+void    OSSpinLockLock( volatile OSSpinLock *__lock );
+        ^
+In file included from /Users/thomashamori/dtblkfx_mac/src/DtBlkFxProcessor.cpp:20:
+In file included from /Users/thomashamori/dtblkfx_mac/src/DtBlkFxProcessor.h:22:
+In file included from /Users/thomashamori/dtblkfx_mac/src/core/DtBlkFx.hpp:28:
+In file included from /Users/thomashamori/dtblkfx_mac/src/core/BlkFxParam.h:24:
+In file included from /Users/thomashamori/dtblkfx_mac/src/core/NoteFreq.h:19:
+/Users/thomashamori/dtblkfx_mac/src/core/misc_stuff.h:230:29: warning: 'OSSpinLockUnlock' is deprecated: first deprecated in macOS 10.12 - Use os_unfair_lock_unlock() from <os/lock.h> instead [-Wdeprecated-declarations]
+  ~ScopeCriticalSection() { OSSpinLockUnlock(sl); }
+                            ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/libkern/OSSpinLockDeprecated.h:105:9: note: 'OSSpinLockUnlock' has been explicitly marked deprecated here
+void    OSSpinLockUnlock( volatile OSSpinLock *__lock );
+        ^
+In file included from /Users/thomashamori/dtblkfx_mac/src/DtBlkFxProcessor.cpp:20:
+In file included from /Users/thomashamori/dtblkfx_mac/src/DtBlkFxProcessor.h:22:
+In file included from /Users/thomashamori/dtblkfx_mac/src/core/DtBlkFx.hpp:28:
+In file included from /Users/thomashamori/dtblkfx_mac/src/core/BlkFxParam.h:24:
+In file included from /Users/thomashamori/dtblkfx_mac/src/core/NoteFreq.h:19:
+/Users/thomashamori/dtblkfx_mac/src/core/misc_stuff.h:247:15: warning: implicit conversion changes signedness: 'unsigned int' to 'int' [-Wsign-conversion]
+    prv_csr = _mm_getcsr();
+            ~ ^~~~~~~~~~~~
+/Users/thomashamori/dtblkfx_mac/src/core/misc_stuff.h:263:16: warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
+    _mm_setcsr(new_csr);
+    ~~~~~~~~~~ ^~~~~~~
+/Users/thomashamori/dtblkfx_mac/src/core/misc_stuff.h:266:50: warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
+  ~ScopeNoFpExceptionsOrDenormals() { _mm_setcsr(prv_csr); }
+                                      ~~~~~~~~~~ ^~~~~~~
+/Users/thomashamori/dtblkfx_mac/src/core/misc_stuff.h:758:24: warning: zero as null pointer constant [-Wzero-as-null-pointer-constant]
+  VoidPtr(void* ptr_ = NULL) { ptr = ptr_; }
+                       ^~~~
+                       nullptr
+/Library/Developer/CommandLineTools/usr/lib/clang/14.0.3/include/stddef.h:84:18: note: expanded from macro 'NULL'
+#    define NULL __null
+                 ^
+In file included from /Users/thomashamori/dtblkfx_mac/src/DtBlkFxProcessor.cpp:20:
+In file included from /Users/thomashamori/dtblkfx_mac/src/DtBlkFxProcessor.h:22:
+In file included from /Users/thomashamori/dtblkfx_mac/src/core/DtBlkFx.hpp:28:
+In file included from /Users/thomashamori/dtblkfx_mac/src/core/BlkFxParam.h:24:
+In file included from /Users/thomashamori/dtblkfx_mac/src/core/NoteFreq.h:19:
+/Users/thomashamori/dtblkfx_mac/src/core/misc_stuff.h:792:30: warning: implicit conversion changes signedness: 'int' to 'size_t' (aka 'unsigned long') [-Wsign-conversion]
+  memset(dst.ptr, value, dst.n);
+  ~~~~~~                 ~~~~^
+/Users/thomashamori/dtblkfx_mac/src/core/misc_stuff.h:825:25: warning: '&&' within '||' [-Wlogical-op-parentheses]
+  return a.ptr >= b.ptr && a.ptr <= b.last() || a.last() >= b.ptr && a.last() <= b.ptr;
+         ~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~ ~~
+/Users/thomashamori/dtblkfx_mac/src/core/misc_stuff.h:825:25: note: place parentheses around the '&&' expression to silence this warning
+  return a.ptr >= b.ptr && a.ptr <= b.last() || a.last() >= b.ptr && a.last() <= b.ptr;
+                        ^
+         (                                  )
+/Users/thomashamori/dtblkfx_mac/src/core/misc_stuff.h:825:67: warning: '&&' within '||' [-Wlogical-op-parentheses]
+  return a.ptr >= b.ptr && a.ptr <= b.last() || a.last() >= b.ptr && a.last() <= b.ptr;
+                                             ~~ ~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~
+/Users/thomashamori/dtblkfx_mac/src/core/misc_stuff.h:825:67: note: place parentheses around the '&&' expression to silence this warning
+  return a.ptr >= b.ptr && a.ptr <= b.last() || a.last() >= b.ptr && a.last() <= b.ptr;
+                                                                  ^
+                                                (                                     )
+/Users/thomashamori/dtblkfx_mac/src/core/misc_stuff.h:983:41: warning: implicit conversion changes signedness: 'int' to 'size_t' (aka 'unsigned long') [-Wsign-conversion]
+  int n = vsnprintf((char*)dst.ptr, dst.n, fmt, args);
+          ~~~~~~~~~                 ~~~~^
+/Users/thomashamori/dtblkfx_mac/src/core/misc_stuff.h:1473:2: warning: extra ';' outside of a function is incompatible with C++98 [-Wc++98-compat-extra-semi]
+};
+ ^
+In file included from /Users/thomashamori/dtblkfx_mac/src/DtBlkFxProcessor.cpp:20:
+In file included from /Users/thomashamori/dtblkfx_mac/src/DtBlkFxProcessor.h:22:
+In file included from /Users/thomashamori/dtblkfx_mac/src/core/DtBlkFx.hpp:28:
+In file included from /Users/thomashamori/dtblkfx_mac/src/core/BlkFxParam.h:24:
+/Users/thomashamori/dtblkfx_mac/src/core/NoteFreq.h:31:2: warning: extra ';' outside of a function is incompatible with C++98 [-Wc++98-compat-extra-semi]
+}; // namespace NoteFreq
+ ^
+In file included from /Users/thomashamori/dtblkfx_mac/src/DtBlkFxProcessor.cpp:20:
+In file included from /Users/thomashamori/dtblkfx_mac/src/DtBlkFxProcessor.h:22:
+In file included from /Users/thomashamori/dtblkfx_mac/src/core/DtBlkFx.hpp:28:
+In file included from /Users/thomashamori/dtblkfx_mac/src/core/BlkFxParam.h:26:
+In file included from /Users/thomashamori/dtblkfx_mac/src/core/rfftw_float.h:22:
+In file included from /Users/thomashamori/dtblkfx_mac/src/core/fftw_support.h:6:
+/Users/thomashamori/dtblkfx_mac/src/core/fft_frac_shift.h:34:43: warning: implicit conversion loses integer precision: 'long' to 'int' [-Wshorten-64-to-32]
+    int dst_bin_r = fix_dst_bin.getRound()-2;
+        ~~~~~~~~~   ~~~~~~~~~~~~~~~~~~~~~~^~
+/Users/thomashamori/dtblkfx_mac/src/core/fft_frac_shift.h:41:2: warning: extra ';' outside of a function is incompatible with C++98 [-Wc++98-compat-extra-semi]
+};
+ ^
+In file included from /Users/thomashamori/dtblkfx_mac/src/DtBlkFxProcessor.cpp:20:
+In file included from /Users/thomashamori/dtblkfx_mac/src/DtBlkFxProcessor.h:22:
+In file included from /Users/thomashamori/dtblkfx_mac/src/core/DtBlkFx.hpp:28:
+In file included from /Users/thomashamori/dtblkfx_mac/src/core/BlkFxParam.h:26:
+In file included from /Users/thomashamori/dtblkfx_mac/src/core/rfftw_float.h:22:
+/Users/thomashamori/dtblkfx_mac/src/core/fftw_support.h:73:2: warning: extra ';' outside of a function is incompatible with C++98 [-Wc++98-compat-extra-semi]
+}; // namespace FFTWf
+ ^
+/Users/thomashamori/dtblkfx_mac/src/core/fftw_support.h:127:36: warning: zero as null pointer constant [-Wzero-as-null-pointer-constant]
+  ScopeFFTWfPlan(fftwf_plan plan = NULL) { base::ptr = plan; }
+                                   ^~~~
+                                   nullptr
+/Library/Developer/CommandLineTools/usr/lib/clang/14.0.3/include/stddef.h:84:18: note: expanded from macro 'NULL'
+#    define NULL __null
+                 ^
+In file included from /Users/thomashamori/dtblkfx_mac/src/DtBlkFxProcessor.cpp:20:
+In file included from /Users/thomashamori/dtblkfx_mac/src/DtBlkFxProcessor.h:22:
+In file included from /Users/thomashamori/dtblkfx_mac/src/core/DtBlkFx.hpp:28:
+In file included from /Users/thomashamori/dtblkfx_mac/src/core/BlkFxParam.h:26:
+In file included from /Users/thomashamori/dtblkfx_mac/src/core/rfftw_float.h:22:
+/Users/thomashamori/dtblkfx_mac/src/core/fftw_support.h:507:37: warning: implicit conversion loses integer precision: 'long' to 'int' [-Wshorten-64-to-32]
+    int dst_first_t = dst_first_bin.getRound();
+        ~~~~~~~~~~~   ~~~~~~~~~~~~~~^~~~~~~~~~
+/Users/thomashamori/dtblkfx_mac/src/core/fftw_support.h:508:35: warning: implicit conversion loses integer precision: 'long' to 'int' [-Wshorten-64-to-32]
+    int dst_last_t = dst_last_bin.getRound();
+        ~~~~~~~~~~   ~~~~~~~~~~~~~^~~~~~~~~~
+In file included from /Users/thomashamori/dtblkfx_mac/src/DtBlkFxProcessor.cpp:20:
+In file included from /Users/thomashamori/dtblkfx_mac/src/DtBlkFxProcessor.h:22:
+In file included from /Users/thomashamori/dtblkfx_mac/src/core/DtBlkFx.hpp:28:
+/Users/thomashamori/dtblkfx_mac/src/core/BlkFxParam.h:309:2: warning: extra ';' outside of a function is incompatible with C++98 [-Wc++98-compat-extra-semi]
+}; // namespace BlkFxParam
+ ^
+In file included from /Users/thomashamori/dtblkfx_mac/src/DtBlkFxProcessor.cpp:20:
+In file included from /Users/thomashamori/dtblkfx_mac/src/DtBlkFxProcessor.h:22:
+In file included from /Users/thomashamori/dtblkfx_mac/src/core/DtBlkFx.hpp:29:
+In file included from /Users/thomashamori/dtblkfx_mac/src/core/FxState1_0.h:32:
+In file included from /Users/thomashamori/dtblkfx_mac/src/core/MorphParam.h:6:
+/Users/thomashamori/dtblkfx_mac/src/core/ParamsDelay.h:109:32: warning: implicit conversion changes signedness: 'int' to 'std::vector<bool>::size_type' (aka 'unsigned long') [-Wsign-conversion]
+    return _use_override_param[param_idx] && !allow_override ? _override_param[param_idx]
+           ~~~~~~~~~~~~~~~~~~~ ^~~~~~~~~
+/Users/thomashamori/dtblkfx_mac/src/core/ParamsDelay.h:109:80: warning: implicit conversion changes signedness: 'int' to 'std::vector<float>::size_type' (aka 'unsigned long') [-Wsign-conversion]
+    return _use_override_param[param_idx] && !allow_override ? _override_param[param_idx]
+                                                               ~~~~~~~~~~~~~~~ ^~~~~~~~~
+/Users/thomashamori/dtblkfx_mac/src/core/ParamsDelay.h:125:22: warning: implicit conversion changes signedness: 'unsigned long' to 'int' [-Wsign-conversion]
+        sizeof(long) +
+        ~~~~~~~~~~~~~^
+/Users/thomashamori/dtblkfx_mac/src/core/ParamsDelay.h:126:25: warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+        sizeof(float) * _n_params; // any_explicit_set array: skip samp_abs_new field & vals array
+                      ~ ^~~~~~~~~
+/Users/thomashamori/dtblkfx_mac/src/core/ParamsDelay.h:128:29: warning: implicit conversion changes signedness: 'unsigned long' to 'int' [-Wsign-conversion]
+        _field_byte_offs[0] + sizeof(bool); // explicit_set array: skip any_explicit_set
+        ~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~
+/Users/thomashamori/dtblkfx_mac/src/core/ParamsDelay.h:128:9: warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+        _field_byte_offs[0] + sizeof(bool); // explicit_set array: skip any_explicit_set
+        ^~~~~~~~~~~~~~~~~~~ ~
+/Users/thomashamori/dtblkfx_mac/src/core/ParamsDelay.h:130:29: warning: implicit conversion changes signedness: 'unsigned long' to 'int' [-Wsign-conversion]
+        _field_byte_offs[1] + sizeof(bool) * _n_params; // total length: skip explicit_set
+        ~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/thomashamori/dtblkfx_mac/src/core/ParamsDelay.h:130:46: warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+        _field_byte_offs[1] + sizeof(bool) * _n_params; // total length: skip explicit_set
+                                           ~ ^~~~~~~~~
+/Users/thomashamori/dtblkfx_mac/src/core/ParamsDelay.h:130:9: warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+        _field_byte_offs[1] + sizeof(bool) * _n_params; // total length: skip explicit_set
+        ^~~~~~~~~~~~~~~~~~~ ~
+/Users/thomashamori/dtblkfx_mac/src/core/ParamsDelay.h:133:36: warning: implicit conversion changes signedness: 'int' to 'std::vector<char>::size_type' (aka 'unsigned long') [-Wsign-conversion]
+    _data.resize(_record_len_bytes * _length);
+          ~~~~~~ ~~~~~~~~~~~~~~~~~~^~~~~~~~~
+/Users/thomashamori/dtblkfx_mac/src/core/ParamsDelay.h:136:26: warning: implicit conversion changes signedness: 'int' to 'size_t' (aka 'unsigned long') [-Wsign-conversion]
+    memset(&_data[0], 0, _record_len_bytes);
+    ~~~~~~               ^~~~~~~~~~~~~~~~~
+/Users/thomashamori/dtblkfx_mac/src/core/ParamsDelay.h:139:28: warning: implicit conversion changes signedness: 'int' to 'std::vector<float>::size_type' (aka 'unsigned long') [-Wsign-conversion]
+    _override_param.resize(n_params, 0.0f);
+                    ~~~~~~ ^~~~~~~~
+/Users/thomashamori/dtblkfx_mac/src/core/ParamsDelay.h:140:32: warning: implicit conversion changes signedness: 'int' to 'std::vector<bool>::size_type' (aka 'unsigned long') [-Wsign-conversion]
+    _use_override_param.resize(n_params, false);
+                        ~~~~~~ ^~~~~~~~
+/Users/thomashamori/dtblkfx_mac/src/core/ParamsDelay.h:154:71: warning: implicit conversion changes signedness: 'int' to 'std::vector<bool>::size_type' (aka 'unsigned long') [-Wsign-conversion]
+  void setOverride(VstParamIdx idx, bool state) { _use_override_param[idx] = state; }
+                                                  ~~~~~~~~~~~~~~~~~~~ ^~~
+/Users/thomashamori/dtblkfx_mac/src/core/ParamsDelay.h:158:21: warning: implicit conversion changes signedness: 'int' to 'std::vector<float>::size_type' (aka 'unsigned long') [-Wsign-conversion]
+    _override_param[idx] = v;
+    ~~~~~~~~~~~~~~~ ^~~
+/Users/thomashamori/dtblkfx_mac/src/core/ParamsDelay.h:160:78: warning: implicit conversion changes signedness: 'int' to 'std::vector<float>::size_type' (aka 'unsigned long') [-Wsign-conversion]
+  float /*0..1*/ getOverride(VstParamIdx idx) const { return _override_param[idx]; }
+                                                             ~~~~~~~~~~~~~~~ ^~~
+/Users/thomashamori/dtblkfx_mac/src/core/ParamsDelay.h:161:73: warning: implicit conversion changes signedness: 'int' to 'std::vector<bool>::size_type' (aka 'unsigned long') [-Wsign-conversion]
+  bool isOverridden(VstParamIdx idx) const { return _use_override_param[idx]; }
+                                                    ~~~~~~~~~~~~~~~~~~~ ^~~
+/Users/thomashamori/dtblkfx_mac/src/core/ParamsDelay.h:208:12: warning: implicit conversion changes signedness: 'int' to 'size_t' (aka 'unsigned long') [-Wsign-conversion]
+           _record_len_bytes);
+           ^~~~~~~~~~~~~~~~~
+/Users/thomashamori/dtblkfx_mac/src/core/ParamsDelay.h:333:51: warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+    memcpy(vals(next), vals(_in), sizeof(float) * _n_params);
+                                                ~ ^~~~~~~~~
+/Users/thomashamori/dtblkfx_mac/src/core/ParamsDelay.h:336:50: warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+    memset(explicit_set(next), 0, sizeof(bool) * _n_params);
+                                               ~ ^~~~~~~~~
+In file included from /Users/thomashamori/dtblkfx_mac/src/DtBlkFxProcessor.cpp:20:
+In file included from /Users/thomashamori/dtblkfx_mac/src/DtBlkFxProcessor.h:22:
+In file included from /Users/thomashamori/dtblkfx_mac/src/core/DtBlkFx.hpp:29:
+In file included from /Users/thomashamori/dtblkfx_mac/src/core/FxState1_0.h:32:
+/Users/thomashamori/dtblkfx_mac/src/core/MorphParam.h:89:47: warning: implicit conversion changes signedness: 'int' to 'size_t' (aka 'unsigned long') [-Wsign-conversion]
+    anchor_data.resize(/*num params*/ param_n * anchor_n, /*value*/ 0);
+                ~~~~~~                ~~~~~~~~^~~~~~~~~~
+/Users/thomashamori/dtblkfx_mac/src/core/MorphParam.h:106:28: warning: implicit conversion changes signedness: 'int' to 'size_t' (aka 'unsigned long') [-Wsign-conversion]
+      anchor_data.resize(n * param_n, 0.0f);
+                  ~~~~~~ ~~^~~~~~~~~
+/Users/thomashamori/dtblkfx_mac/src/core/MorphParam.h:118:33: warning: implicit conversion changes signedness: 'int' to 'size_t' (aka 'unsigned long') [-Wsign-conversion]
+    anchor_data.resize(anchor_n * param_n, 0.0f);
+                ~~~~~~ ~~~~~~~~~^~~~~~~~~
+/Users/thomashamori/dtblkfx_mac/src/core/MorphParam.h:121:35: warning: implicit conversion changes signedness: 'unsigned long' to 'int' [-Wsign-conversion]
+    int bytes_cpy = sizeof(float) * std::min(old_param_n, param_n);
+        ~~~~~~~~~   ~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/thomashamori/dtblkfx_mac/src/core/MorphParam.h:121:37: warning: implicit conversion changes signedness: 'const int' to 'unsigned long' [-Wsign-conversion]
+    int bytes_cpy = sizeof(float) * std::min(old_param_n, param_n);
+                                  ~ ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/thomashamori/dtblkfx_mac/src/core/MorphParam.h:123:71: warning: implicit conversion changes signedness: 'int' to 'size_t' (aka 'unsigned long') [-Wsign-conversion]
+      memcpy(anchorData(i), begin(old_anchor_data) + i * old_param_n, bytes_cpy);
+      ~~~~~~                                                          ^~~~~~~~~
+/Users/thomashamori/dtblkfx_mac/src/core/MorphParam.h:132:32: warning: implicit conversion changes signedness: 'int' to 'size_t' (aka 'unsigned long') [-Wsign-conversion]
+    anchor_data.resize(param_n * anchor_n);
+                ~~~~~~ ~~~~~~~~^~~~~~~~~~
+In file included from /Users/thomashamori/dtblkfx_mac/src/DtBlkFxProcessor.cpp:20:
+In file included from /Users/thomashamori/dtblkfx_mac/src/DtBlkFxProcessor.h:22:
+In file included from /Users/thomashamori/dtblkfx_mac/src/core/DtBlkFx.hpp:28:
+In file included from /Users/thomashamori/dtblkfx_mac/src/core/BlkFxParam.h:24:
+In file included from /Users/thomashamori/dtblkfx_mac/src/core/NoteFreq.h:19:
+/Users/thomashamori/dtblkfx_mac/src/core/misc_stuff.h:536:18: warning: zero as null pointer constant [-Wzero-as-null-pointer-constant]
+  _Ptr(T* ptr_ = NULL) { _PtrBase<T>::ptr = ptr_; }
+                 ^~~~
+                 nullptr
+/Library/Developer/CommandLineTools/usr/lib/clang/14.0.3/include/stddef.h:84:18: note: expanded from macro 'NULL'
+#    define NULL __null
+                 ^
+/Users/thomashamori/dtblkfx_mac/src/core/MorphParam.h:12:8: note: in instantiation of default function argument expression for '_Ptr<MorphParam>' required here
+struct MorphParamArrayAccess
+       ^
+/Users/thomashamori/dtblkfx_mac/src/core/MorphParam.h:139:27: note: in implicit default constructor for 'MorphParamArrayAccess' first required here
+    MorphParamArrayAccess a;
+                          ^
+In file included from /Users/thomashamori/dtblkfx_mac/src/DtBlkFxProcessor.cpp:20:
+In file included from /Users/thomashamori/dtblkfx_mac/src/DtBlkFxProcessor.h:22:
+In file included from /Users/thomashamori/dtblkfx_mac/src/core/DtBlkFx.hpp:29:
+In file included from /Users/thomashamori/dtblkfx_mac/src/core/FxState1_0.h:39:
+/Users/thomashamori/dtblkfx_mac/src/core/FxRun1_0.h:65:36: warning: unused parameter 's' [-Wunused-parameter]
+  virtual void process(FxState1_0* s) {}
+                                   ^
+/Users/thomashamori/dtblkfx_mac/src/core/FxRun1_0.h:68:57: warning: unused parameter 's' [-Wunused-parameter]
+  virtual Rng<char> /*updated rng*/ dispVal(FxState1_0* s, Rng<char> /*out*/ text,
+                                                        ^
+/Users/thomashamori/dtblkfx_mac/src/core/FxRun1_0.h:69:60: warning: unused parameter 'val' [-Wunused-parameter]
+                                            float /*0..1*/ val)
+                                                           ^
+/Users/thomashamori/dtblkfx_mac/src/core/FxRun1_0.h:92:14: warning: zero as null pointer constant [-Wzero-as-null-pointer-constant]
+      return NULL;
+             ^~~~
+             nullptr
+/Library/Developer/CommandLineTools/usr/lib/clang/14.0.3/include/stddef.h:84:18: note: expanded from macro 'NULL'
+#    define NULL __null
+                 ^
+In file included from /Users/thomashamori/dtblkfx_mac/src/DtBlkFxProcessor.cpp:20:
+In file included from /Users/thomashamori/dtblkfx_mac/src/DtBlkFxProcessor.h:22:
+In file included from /Users/thomashamori/dtblkfx_mac/src/core/DtBlkFx.hpp:29:
+In file included from /Users/thomashamori/dtblkfx_mac/src/core/FxState1_0.h:39:
+/Users/thomashamori/dtblkfx_mac/src/core/FxRun1_0.h:93:27: warning: implicit conversion changes signedness: 'int' to 'std::vector<FxRun1_0::ValuePreset>::size_type' (aka 'unsigned long') [-Wsign-conversion]
+    return _value_presets[idx].str;
+           ~~~~~~~~~~~~~~ ^~~
+/Users/thomashamori/dtblkfx_mac/src/core/FxRun1_0.h:99:74: warning: implicit conversion changes signedness: 'int' to 'std::vector<FxRun1_0::ValuePreset>::size_type' (aka 'unsigned long') [-Wsign-conversion]
+    return idx >= (int)_value_presets.size() ? curr_val : _value_presets[idx].val;
+                                                          ~~~~~~~~~~~~~~ ^~~
+In file included from /Users/thomashamori/dtblkfx_mac/src/DtBlkFxProcessor.cpp:20:
+In file included from /Users/thomashamori/dtblkfx_mac/src/DtBlkFxProcessor.h:22:
+In file included from /Users/thomashamori/dtblkfx_mac/src/core/DtBlkFx.hpp:32:
+/Users/thomashamori/dtblkfx_mac/src/core/VstProgram.h:89:24: warning: zero as null pointer constant [-Wzero-as-null-pointer-constant]
+      char* next_str = NULL;
+                       ^~~~
+                       nullptr
+/Library/Developer/CommandLineTools/usr/lib/clang/14.0.3/include/stddef.h:84:18: note: expanded from macro 'NULL'
+#    define NULL __null
+                 ^
+In file included from /Users/thomashamori/dtblkfx_mac/src/DtBlkFxProcessor.cpp:20:
+In file included from /Users/thomashamori/dtblkfx_mac/src/DtBlkFxProcessor.h:22:
+/Users/thomashamori/dtblkfx_mac/src/core/DtBlkFx.hpp:120:14: warning: implicit conversion loses integer precision: 'long' to 'int' [-Wshorten-64-to-32]
+    offs = p - _chan[ch].x1;
+         ~ ~~^~~~~~~~~~~~~~
+/Users/thomashamori/dtblkfx_mac/src/core/DtBlkFx.hpp:337:56: warning: zero as null pointer constant [-Wzero-as-null-pointer-constant]
+  void clrVstParamIdxFocus() { setVstParamIdxFocus(-1, NULL); }
+                                                       ^~~~
+                                                       nullptr
+/Library/Developer/CommandLineTools/usr/lib/clang/14.0.3/include/stddef.h:84:18: note: expanded from macro 'NULL'
+#    define NULL __null
+                 ^
+In file included from /Users/thomashamori/dtblkfx_mac/src/DtBlkFxProcessor.cpp:20:
+In file included from /Users/thomashamori/dtblkfx_mac/src/DtBlkFxProcessor.h:22:
+/Users/thomashamori/dtblkfx_mac/src/core/DtBlkFx.hpp:372:49: warning: implicit conversion changes signedness: 'int' to 'std::vector<VstProgram<44>>::size_type' (aka 'unsigned long') [-Wsign-conversion]
+  BlkFxProgram& currProgram() { return _program[currProgramNum()]; }
+                                       ~~~~~~~~ ^~~~~~~~~~~~~~~~
+In file included from /Users/thomashamori/dtblkfx_mac/src/DtBlkFxProcessor.cpp:21:
+In file included from /Users/thomashamori/dtblkfx_mac/src/DtBlkFxEditor.h:9:
+/Users/thomashamori/dtblkfx_mac/src/RetroLookAndFeel.h:77:14: error: no member named 'withCenter' in 'juce::Rectangle<float>'; did you mean 'withCentre'?
+            .withCenter(maxPoint));
+             ^~~~~~~~~~
+             withCentre
+/Users/thomashamori/dtblkfx_mac/modules/juce/modules/juce_graphics/geometry/juce_Rectangle.h:213:15: note: 'withCentre' declared here
+    Rectangle withCentre (Point<ValueType> newCentre) const noexcept                                { return { newCentre.x - w / (ValueType) 2,
+              ^
+In file included from /Users/thomashamori/dtblkfx_mac/src/DtBlkFxProcessor.cpp:21:
+In file included from /Users/thomashamori/dtblkfx_mac/src/DtBlkFxEditor.h:9:
+/Users/thomashamori/dtblkfx_mac/src/RetroLookAndFeel.h:40:31: warning: unused parameter 'minSliderPos' [-Wunused-parameter]
+                        float minSliderPos,
+                              ^
+/Users/thomashamori/dtblkfx_mac/src/RetroLookAndFeel.h:41:31: warning: unused parameter 'maxSliderPos' [-Wunused-parameter]
+                        float maxSliderPos,
+                              ^
+/Users/thomashamori/dtblkfx_mac/src/RetroLookAndFeel.h:42:57: warning: unused parameter 'style' [-Wunused-parameter]
+                        const juce::Slider::SliderStyle style,
+                                                        ^
+/Users/thomashamori/dtblkfx_mac/src/RetroLookAndFeel.h:43:39: warning: unused parameter 'slider' [-Wunused-parameter]
+                        juce::Slider& slider) override
+                                      ^
+/Users/thomashamori/dtblkfx_mac/src/DtBlkFxProcessor.cpp:42:23: warning: implicit conversion loses floating-point precision: 'double' to 'float' [-Wimplicit-float-conversion]
+  core->setSampleRate(getSampleRate());
+        ~~~~~~~~~~~~~ ^~~~~~~~~~~~~~~
+/Users/thomashamori/dtblkfx_mac/src/DtBlkFxProcessor.cpp:202:25: warning: implicit conversion loses floating-point precision: 'double' to 'float' [-Wimplicit-float-conversion]
+    core->setSampleRate(sampleRate);
+          ~~~~~~~~~~~~~ ^~~~~~~~~~
+/Users/thomashamori/dtblkfx_mac/src/DtBlkFxProcessor.cpp:299:33: warning: implicit conversion changes signedness: 'int' to 'std::vector<float>::size_type' (aka 'unsigned long') [-Wsign-conversion]
+    inputSpectrogramData.resize(numBins);
+                         ~~~~~~ ^~~~~~~
+/Users/thomashamori/dtblkfx_mac/src/DtBlkFxProcessor.cpp:301:50: warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+  std::memcpy(inputSpectrogramData.data(), data, numBins * sizeof(float));
+                                                 ^~~~~~~ ~
+/Users/thomashamori/dtblkfx_mac/src/DtBlkFxProcessor.cpp:298:35: warning: comparison of integers of different signs: 'std::vector<float>::size_type' (aka 'unsigned long') and 'int' [-Wsign-compare]
+  if (inputSpectrogramData.size() != numBins)
+      ~~~~~~~~~~~~~~~~~~~~~~~~~~~ ^  ~~~~~~~
+/Users/thomashamori/dtblkfx_mac/src/DtBlkFxProcessor.cpp:309:34: warning: implicit conversion changes signedness: 'int' to 'std::vector<float>::size_type' (aka 'unsigned long') [-Wsign-conversion]
+    outputSpectrogramData.resize(numBins);
+                          ~~~~~~ ^~~~~~~
+/Users/thomashamori/dtblkfx_mac/src/DtBlkFxProcessor.cpp:311:51: warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+  std::memcpy(outputSpectrogramData.data(), data, numBins * sizeof(float));
+                                                  ^~~~~~~ ~
+/Users/thomashamori/dtblkfx_mac/src/DtBlkFxProcessor.cpp:308:36: warning: comparison of integers of different signs: 'std::vector<float>::size_type' (aka 'unsigned long') and 'int' [-Wsign-compare]
+  if (outputSpectrogramData.size() != numBins)
+      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~ ^  ~~~~~~~
+In file included from /Users/thomashamori/dtblkfx_mac/src/DtBlkFxProcessor.cpp:20:
+In file included from /Users/thomashamori/dtblkfx_mac/src/DtBlkFxProcessor.h:22:
+In file included from /Users/thomashamori/dtblkfx_mac/src/core/DtBlkFx.hpp:28:
+In file included from /Users/thomashamori/dtblkfx_mac/src/core/BlkFxParam.h:24:
+In file included from /Users/thomashamori/dtblkfx_mac/src/core/NoteFreq.h:19:
+/Users/thomashamori/dtblkfx_mac/src/core/misc_stuff.h:685:59: warning: implicit conversion changes signedness: 'int' to 'size_t' (aka 'unsigned long') [-Wsign-conversion]
+  void copyFrom(const void* src) { memcpy(base::ptr, src, sizeBytes()); }
+                                   ~~~~~~                 ^~~~~~~~~~~
+/Users/thomashamori/dtblkfx_mac/src/core/misc_stuff.h:782:7: note: in instantiation of member function 'Rng<unsigned char>::copyFrom' requested here
+  dst.copyFrom(src);
+      ^
+/Users/thomashamori/dtblkfx_mac/src/core/misc_stuff.h:665:36: warning: implicit conversion changes signedness: 'unsigned long' to 'int' [-Wsign-conversion]
+  int sizeBytes() const { return n * sizeof(T); }
+                          ~~~~~~ ~~^~~~~~~~~~~
+/Users/thomashamori/dtblkfx_mac/src/core/misc_stuff.h:685:59: note: in instantiation of member function 'Rng<unsigned char>::sizeBytes' requested here
+  void copyFrom(const void* src) { memcpy(base::ptr, src, sizeBytes()); }
+                                                          ^
+/Users/thomashamori/dtblkfx_mac/src/core/misc_stuff.h:782:7: note: in instantiation of member function 'Rng<unsigned char>::copyFrom' requested here
+  dst.copyFrom(src);
+      ^
+/Users/thomashamori/dtblkfx_mac/src/core/misc_stuff.h:665:34: warning: implicit conversion changes signedness: 'const int' to 'unsigned long' [-Wsign-conversion]
+  int sizeBytes() const { return n * sizeof(T); }
+                                 ^ ~
+/Users/thomashamori/dtblkfx_mac/src/core/misc_stuff.h:684:57: warning: implicit conversion changes signedness: 'int' to 'size_t' (aka 'unsigned long') [-Wsign-conversion]
+  void copyTo(void* dst) const { memcpy(dst, base::ptr, sizeBytes()); }
+                                 ~~~~~~                 ^~~~~~~~~~~
+/Users/thomashamori/dtblkfx_mac/src/core/misc_stuff.h:786:7: note: in instantiation of member function 'Rng<unsigned char>::copyTo' requested here
+  src.copyTo(dst);
+      ^
+/Users/thomashamori/dtblkfx_mac/src/core/misc_stuff.h:741:45: warning: implicit conversion changes signedness: 'unsigned long' to 'int' [-Wsign-conversion]
+      : base((unsigned char*)src, sizeof(T) * n_items)
+        ~~~~                      ~~~~~~~~~~^~~~~~~~~
+/Users/thomashamori/dtblkfx_mac/src/core/misc_stuff.h:910:9: note: in instantiation of function template specialization 'UCharRng::UCharRng<unsigned char>' requested here
+      : UCharRng(mem, n_bytes)
+        ^
+/Users/thomashamori/dtblkfx_mac/src/core/misc_stuff.h:741:47: warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+      : base((unsigned char*)src, sizeof(T) * n_items)
+                                            ~ ^~~~~~~
+/Users/thomashamori/dtblkfx_mac/src/core/misc_stuff.h:665:36: warning: implicit conversion changes signedness: 'unsigned long' to 'int' [-Wsign-conversion]
+  int sizeBytes() const { return n * sizeof(T); }
+                          ~~~~~~ ~~^~~~~~~~~~~
+/Users/thomashamori/dtblkfx_mac/src/core/misc_stuff.h:770:46: note: in instantiation of member function 'Rng<char>::sizeBytes' requested here
+  return UCharRng((unsigned char*)base::ptr, sizeBytes());
+                                             ^
+/Users/thomashamori/dtblkfx_mac/src/core/misc_stuff.h:775:37: note: in instantiation of member function 'Rng<char>::toUCharRng' requested here
+    : Rng<unsigned char>(toRng(src).toUCharRng())
+                                    ^
+/Users/thomashamori/dtblkfx_mac/src/core/misc_stuff.h:1698:21: note: in instantiation of function template specialization 'UCharRng::UCharRng<CharRng>' requested here
+  if (ChkMemOverlap(dst, src))
+                    ^
+/Users/thomashamori/dtblkfx_mac/src/core/misc_stuff.h:665:34: warning: implicit conversion changes signedness: 'const int' to 'unsigned long' [-Wsign-conversion]
+  int sizeBytes() const { return n * sizeof(T); }
+                                 ^ ~
+/Users/thomashamori/dtblkfx_mac/src/core/misc_stuff.h:665:36: warning: implicit conversion changes signedness: 'unsigned long' to 'int' [-Wsign-conversion]
+  int sizeBytes() const { return n * sizeof(T); }
+                          ~~~~~~ ~~^~~~~~~~~~~
+/Users/thomashamori/dtblkfx_mac/src/core/misc_stuff.h:770:46: note: in instantiation of member function 'Rng<const char>::sizeBytes' requested here
+  return UCharRng((unsigned char*)base::ptr, sizeBytes());
+                                             ^
+/Users/thomashamori/dtblkfx_mac/src/core/misc_stuff.h:775:37: note: in instantiation of member function 'Rng<const char>::toUCharRng' requested here
+    : Rng<unsigned char>(toRng(src).toUCharRng())
+                                    ^
+/Users/thomashamori/dtblkfx_mac/src/core/misc_stuff.h:1698:26: note: in instantiation of function template specialization 'UCharRng::UCharRng<Rng<const char>>' requested here
+  if (ChkMemOverlap(dst, src))
+                         ^
+/Users/thomashamori/dtblkfx_mac/src/core/misc_stuff.h:665:34: warning: implicit conversion changes signedness: 'const int' to 'unsigned long' [-Wsign-conversion]
+  int sizeBytes() const { return n * sizeof(T); }
+                                 ^ ~
+In file included from /Users/thomashamori/dtblkfx_mac/src/DtBlkFxProcessor.cpp:20:
+In file included from /Users/thomashamori/dtblkfx_mac/src/DtBlkFxProcessor.h:22:
+In file included from /Users/thomashamori/dtblkfx_mac/src/core/DtBlkFx.hpp:29:
+In file included from /Users/thomashamori/dtblkfx_mac/src/core/FxState1_0.h:32:
+In file included from /Users/thomashamori/dtblkfx_mac/src/core/MorphParam.h:6:
+/Users/thomashamori/dtblkfx_mac/src/core/ParamsDelay.h:96:12: warning: cast from 'char *' to 'long *' increases required alignment from 1 to 8 [-Wcast-align]
+    return (T*)(begin(_data) + i * _record_len_bytes + byte_offs);
+           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/thomashamori/dtblkfx_mac/src/core/ParamsDelay.h:101:43: note: in instantiation of function template specialization 'ParamsDelay::data<long>' requested here
+  long& samp_abs(int row) const { return *data<long>(row, 0); }
+                                          ^
+/Users/thomashamori/dtblkfx_mac/src/core/ParamsDelay.h:96:12: warning: cast from 'char *' to 'float *' increases required alignment from 1 to 4 [-Wcast-align]
+    return (T*)(begin(_data) + i * _record_len_bytes + byte_offs);
+           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/thomashamori/dtblkfx_mac/src/core/ParamsDelay.h:102:39: note: in instantiation of function template specialization 'ParamsDelay::data<float>' requested here
+  float* vals(int row) const { return data<float>(row, sizeof(long)); }
+                                      ^
+In file included from /Users/thomashamori/dtblkfx_mac/src/DtBlkFxProcessor.cpp:20:
+In file included from /Users/thomashamori/dtblkfx_mac/src/DtBlkFxProcessor.h:22:
+In file included from /Users/thomashamori/dtblkfx_mac/src/core/DtBlkFx.hpp:28:
+In file included from /Users/thomashamori/dtblkfx_mac/src/core/BlkFxParam.h:24:
+In file included from /Users/thomashamori/dtblkfx_mac/src/core/NoteFreq.h:19:
+/Users/thomashamori/dtblkfx_mac/src/core/misc_stuff.h:684:57: warning: implicit conversion changes signedness: 'int' to 'size_t' (aka 'unsigned long') [-Wsign-conversion]
+  void copyTo(void* dst) const { memcpy(dst, base::ptr, sizeBytes()); }
+                                 ~~~~~~                 ^~~~~~~~~~~
+/Users/thomashamori/dtblkfx_mac/src/core/MorphParam.h:133:14: note: in instantiation of member function 'Rng<float>::copyTo' requested here
+    src_data.copyTo(begin(anchor_data));
+             ^
+In file included from /Users/thomashamori/dtblkfx_mac/src/DtBlkFxProcessor.cpp:20:
+In file included from /Users/thomashamori/dtblkfx_mac/src/DtBlkFxProcessor.h:22:
+In file included from /Users/thomashamori/dtblkfx_mac/src/core/DtBlkFx.hpp:28:
+In file included from /Users/thomashamori/dtblkfx_mac/src/core/BlkFxParam.h:24:
+In file included from /Users/thomashamori/dtblkfx_mac/src/core/NoteFreq.h:19:
+/Users/thomashamori/dtblkfx_mac/src/core/misc_stuff.h:665:36: warning: implicit conversion changes signedness: 'unsigned long' to 'int' [-Wsign-conversion]
+  int sizeBytes() const { return n * sizeof(T); }
+                          ~~~~~~ ~~^~~~~~~~~~~
+/Users/thomashamori/dtblkfx_mac/src/core/misc_stuff.h:684:57: note: in instantiation of member function 'Rng<float>::sizeBytes' requested here
+  void copyTo(void* dst) const { memcpy(dst, base::ptr, sizeBytes()); }
+                                                        ^
+/Users/thomashamori/dtblkfx_mac/src/core/MorphParam.h:133:14: note: in instantiation of member function 'Rng<float>::copyTo' requested here
+    src_data.copyTo(begin(anchor_data));
+             ^
+In file included from /Users/thomashamori/dtblkfx_mac/src/DtBlkFxProcessor.cpp:20:
+In file included from /Users/thomashamori/dtblkfx_mac/src/DtBlkFxProcessor.h:22:
+In file included from /Users/thomashamori/dtblkfx_mac/src/core/DtBlkFx.hpp:28:
+In file included from /Users/thomashamori/dtblkfx_mac/src/core/BlkFxParam.h:24:
+In file included from /Users/thomashamori/dtblkfx_mac/src/core/NoteFreq.h:19:
+/Users/thomashamori/dtblkfx_mac/src/core/misc_stuff.h:665:34: warning: implicit conversion changes signedness: 'const int' to 'unsigned long' [-Wsign-conversion]
+  int sizeBytes() const { return n * sizeof(T); }
+                                 ^ ~
+/Users/thomashamori/dtblkfx_mac/src/core/misc_stuff.h:685:59: warning: implicit conversion changes signedness: 'int' to 'size_t' (aka 'unsigned long') [-Wsign-conversion]
+  void copyFrom(const void* src) { memcpy(base::ptr, src, sizeBytes()); }
+                                   ~~~~~~                 ^~~~~~~~~~~
+/Users/thomashamori/dtblkfx_mac/src/core/MorphParam.h:233:16: note: in instantiation of member function 'Rng<float>::copyFrom' requested here
+        result.copyFrom(closestAnchorData(morph_pos) + param_idx);
+               ^
+In file included from /Users/thomashamori/dtblkfx_mac/src/DtBlkFxProcessor.cpp:21:
+In file included from /Users/thomashamori/dtblkfx_mac/src/DtBlkFxEditor.h:4:
+/Users/thomashamori/dtblkfx_mac/src/SpectrogramComponent.h:90:7: warning: private field 'fftSize' is not used [-Wunused-private-field]
+  int fftSize = 4096; // Default
+      ^
+124 warnings and 1 error generated.
+make[3]: *** [CMakeFiles/DtBlkFx.dir/src/DtBlkFxProcessor.cpp.o] Error 1
+make[2]: *** [CMakeFiles/DtBlkFx.dir/all] Error 2
+make[1]: *** [CMakeFiles/DtBlkFx.dir/rule] Error 2
+make: *** [DtBlkFx] Error 2

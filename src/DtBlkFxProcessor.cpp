@@ -19,6 +19,7 @@
 
 #include "DtBlkFxProcessor.h"
 #include "DtBlkFxEditor.h"
+#include "rfftw_float.h"
 
 DtBlkFxAudioProcessor::DtBlkFxAudioProcessor()
     : AudioProcessor(BusesProperties()
@@ -28,11 +29,129 @@ DtBlkFxAudioProcessor::DtBlkFxAudioProcessor()
 #  endif
                          .withOutput("Output", juce::AudioChannelSet::stereo(), true)
 #endif
-      )
+                         )
+    , apvts(*this, nullptr, "Parameters", createParameterLayout())
 {
+  static bool initialized = false;
+  if (!initialized) {
+    CreateFFTWfPlans();
+    initialized = true;
+  }
+
+  core = new DtBlkFx(nullptr);
+  core->setSampleRate(getSampleRate());
+  core->setBlockSize(getBlockSize());
+
+  core->inputSpectrogramCallback = [this](const float* data, int numBins) {
+    pushInputSpectrogramData(data, numBins);
+  };
+  core->outputSpectrogramCallback = [this](const float* data, int numBins) {
+    pushOutputSpectrogramData(data, numBins);
+  };
+
+  // Add listeners
+  for (int i = 0; i < BlkFxParam::TOTAL_NUM; ++i) {
+    apvts.addParameterListener("param_" + juce::String(i), this);
+    // Sync initial values
+    core->setParameter(i, apvts.getRawParameterValue("param_" + juce::String(i))->load());
+  }
 }
 
-DtBlkFxAudioProcessor::~DtBlkFxAudioProcessor() {}
+juce::AudioProcessorValueTreeState::ParameterLayout DtBlkFxAudioProcessor::createParameterLayout()
+{
+  juce::AudioProcessorValueTreeState::ParameterLayout layout;
+
+  for (int i = 0; i < BlkFxParam::TOTAL_NUM; ++i) {
+    BlkFxParam::SplitParamNum p(i);
+    juce::String name;
+    float defaultValue = 0.0f;
+    if (p.glob_param >= 0) {
+      switch (p.glob_param) {
+        case BlkFxParam::MIX_BACK:
+          name = "Mix Back";
+          defaultValue = 0.0f;
+          break;
+        case BlkFxParam::DELAY:
+          name = "Delay";
+          defaultValue = 0.0f;
+          break;
+        case BlkFxParam::FFT_LEN:
+          name = "FFT Length";
+          defaultValue = 0.5f;
+          break;
+        case BlkFxParam::OVERLAP:
+          name = "Overlap";
+          defaultValue = 0.5f;
+          break;
+        default:
+          name = "Global " + juce::String(p.glob_param);
+          break;
+      }
+    }
+    else {
+      juce::String fxName = "FX " + juce::String(p.fx_set + 1) + " ";
+      switch (p.fx_param) {
+        case BlkFxParam::FX_FREQ_A:
+          name = fxName + "Freq A";
+          break;
+        case BlkFxParam::FX_FREQ_B:
+          name = fxName + "Freq B";
+          break;
+        case BlkFxParam::FX_AMP:
+          name = fxName + "Amp";
+          defaultValue = 0.6f; // 0dB
+          break;
+        case BlkFxParam::FX_TYPE:
+          name = fxName + "Type";
+          break;
+        case BlkFxParam::FX_VAL:
+          name = fxName + "Value";
+          break;
+        default:
+          name = fxName + "Param " + juce::String(p.fx_param);
+          break;
+      }
+    }
+
+    layout.add(std::make_unique<juce::AudioParameterFloat>(
+        "param_" + juce::String(i), name, 0.0f, 1.0f, defaultValue));
+  }
+
+  // Limiter Parameters
+  layout.add(std::make_unique<juce::AudioParameterFloat>(
+      limiterCeilingId,
+      "Limiter Ceiling",
+      juce::NormalisableRange<float>(-24.0f, 0.0f, 0.1f),
+      -0.1f));
+  layout.add(std::make_unique<juce::AudioParameterFloat>(
+      limiterGainId, "Limiter Gain", juce::NormalisableRange<float>(0.0f, 24.0f, 0.1f), 0.0f));
+  layout.add(std::make_unique<juce::AudioParameterFloat>(
+      limiterReleaseId,
+      "Limiter Release",
+      juce::NormalisableRange<float>(0.1f, 1000.0f, 0.1f, 0.5f),
+      50.0f));
+  layout.add(std::make_unique<juce::AudioParameterBool>(limiterEnabledId, "Limiter Enabled", true));
+
+  return layout;
+}
+
+void DtBlkFxAudioProcessor::parameterChanged(const juce::String& parameterID, float newValue)
+{
+  if (core) {
+    if (parameterID.startsWith("param_")) {
+      int index = parameterID.substring(6).getIntValue();
+      core->setParameter(index, newValue);
+    }
+  }
+}
+
+DtBlkFxAudioProcessor::~DtBlkFxAudioProcessor()
+{
+  if (core) {
+    delete core;
+    core = nullptr;
+  }
+}
 
 const juce::String DtBlkFxAudioProcessor::getName() const
 {
@@ -100,15 +219,26 @@ void DtBlkFxAudioProcessor::changeProgramName(int index, const juce::String& new
 
 void DtBlkFxAudioProcessor::prepareToPlay(double sampleRate, int samplesPerBlock)
 {
-  // Use this method as the place to do any pre-playback
-  // initialisation that you need..
-  juce::ignoreUnused(sampleRate, samplesPerBlock);
+  if (core) {
+    core->setSampleRate(sampleRate);
+    core->setBlockSize(samplesPerBlock);
+    core->resume();
+  }
+
+  juce::dsp::ProcessSpec spec;
+  spec.sampleRate = sampleRate;
+  spec.maximumBlockSize = (juce::uint32)samplesPerBlock;
+  spec.numChannels = (juce::uint32)getTotalNumOutputChannels();
+
+  limiter.prepare(spec);
+  limiter.reset();
 }
 
 void DtBlkFxAudioProcessor::releaseResources()
 {
-  // When playback stops, you can use this as an opportunity to free up any
-  // spare memory, etc.
+  if (core) {
+    core->suspend();
+  }
 }
 
 bool DtBlkFxAudioProcessor::isBusesLayoutSupported(const BusesLayout& layouts) const
@@ -153,19 +283,32 @@ void DtBlkFxAudioProcessor::processBlock(juce::AudioBuffer<float>& buffer,
   for (auto i = totalNumInputChannels; i < totalNumOutputChannels; ++i)
     buffer.clear(i, 0, buffer.getNumSamples());
 
-  // This is the place where you'd normally do the guts of your plugin's
-  // audio processing...
-  // Make sure to reset the state if your inner loop is processing
-  // the samples and the outer loop is handling the channels.
-  // Alternatively, you can process the samples with the channels
-  // interleaved by keeping the same state.
-  for (int channel = 0; channel < totalNumInputChannels; ++channel) {
-    auto* channelData = buffer.getWritePointer(channel);
-    juce::ignoreUnused(channelData);
-    // ..do something to the data...
+  if (core) {
+    core->processReplacing(
+        buffer.getArrayOfWritePointers(), buffer.getArrayOfWritePointers(), buffer.getNumSamples());
+  }
+
+  // Output Limiter
+  bool limiterEnabled = *apvts.getRawParameterValue(limiterEnabledId) > 0.5f;
+  if (limiterEnabled) {
+    float ceiling = *apvts.getRawParameterValue(limiterCeilingId);
+    float gain = *apvts.getRawParameterValue(limiterGainId);
+    float release = *apvts.getRawParameterValue(limiterReleaseId);
+
+    // Apply Input Gain
+    if (gain > 0.0f) {
+      buffer.applyGain(juce::Decibels::decibelsToGain(gain));
+    }
+
+    limiter.setThreshold(ceiling);
+    limiter.setRelease(release);
+
+    juce::dsp::AudioBlock<float> block(buffer);
+    juce::dsp::ProcessContextReplacing<float> context(block);
+    limiter.process(context);
   }
 }
-
+//==============================================================================
 bool DtBlkFxAudioProcessor::hasEditor() const
 {
   return true; // (change this to false if you choose to not supply an editor)
@@ -173,24 +316,52 @@ bool DtBlkFxAudioProcessor::hasEditor() const
 
 juce::AudioProcessorEditor* DtBlkFxAudioProcessor::createEditor()
 {
-  return new DtBlkFxAudioProcessorEditor(*this);
+  return new DtBlkFxEditor(*this);
 }
 
+//==============================================================================
 void DtBlkFxAudioProcessor::getStateInformation(juce::MemoryBlock& destData)
 {
   // You should use this method to store your parameters in the memory block.
   // You could do that either as raw data, or use the XML or ValueTree classes
-  // as intermediaries to make it easy to save and load complex data.
-  juce::ignoreUnused(destData);
+  // as intermediaries
+  auto state = apvts.copyState();
+  std::unique_ptr<juce::XmlElement> xml(state.createXml());
+  copyXmlToBinary(*xml, destData);
 }
 
 void DtBlkFxAudioProcessor::setStateInformation(const void* data, int sizeInBytes)
 {
   // You should use this method to restore your parameters from this memory block,
   // whose contents will have been created by the getStateInformation() call.
-  juce::ignoreUnused(data, sizeInBytes);
+  std::unique_ptr<juce::XmlElement> xmlState(getXmlFromBinary(data, sizeInBytes));
+
+  if (xmlState.get() != nullptr)
+    if (xmlState->hasTagName(apvts.state.getType()))
+      apvts.replaceState(juce::ValueTree::fromXml(*xmlState));
 }
 
+void DtBlkFxAudioProcessor::pushInputSpectrogramData(const float* data, int numBins)
+{
+  juce::ScopedLock lock(inputSpectrogramLock);
+  if (inputSpectrogramData.size() != numBins)
+    inputSpectrogramData.resize(numBins);
+
+  std::memcpy(inputSpectrogramData.data(), data, numBins * sizeof(float));
+  newInputSpectrogramDataAvailable = true;
+}
+
+void DtBlkFxAudioProcessor::pushOutputSpectrogramData(const float* data, int numBins)
+{
+  juce::ScopedLock lock(outputSpectrogramLock);
+  if (outputSpectrogramData.size() != numBins)
+    outputSpectrogramData.resize(numBins);
+
+  std::memcpy(outputSpectrogramData.data(), data, numBins * sizeof(float));
+  newOutputSpectrogramDataAvailable = true;
+}
+
+//==============================================================================
 // This creates new instances of the plugin..
 juce::AudioProcessor* JUCE_CALLTYPE createPluginFilter()
 {

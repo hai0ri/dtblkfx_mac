@@ -1,55 +1,66 @@
-# DtBlkFx Audio FX Plug-in
+# DtBlkFx (macOS Universal Edition)
 
-DtBlkFx is a Fast-Fourier-Transform (FFT) based VST plug-in.
+**DtBlkFx** is a Fast Fourier Transform (FFT) based VST plug-in for macOS, originally created by Darrell Tam and updated for modern macOS (Universal Binary) and JUCE by haiori.
 
-[![Download Latest](https://img.shields.io/badge/download-latest-green.svg)](https://github.com/dozius/dtblkfx/releases/latest)
-[![Github All Releases](https://img.shields.io/github/downloads/dozius/dtblkfx/total.svg)](https://github.com/dozius/dtblkfx/releases/latest)
-[![Donate](https://img.shields.io/badge/donate-paypal-blue.svg)](https://www.paypal.me/cisc)
+It works by processing audio in the frequency domain, allowing for unique effects like:
+- **Spectral Vocoding**
+- **Harmonic Filtering**
+- **Frequency Shifting**
+- **Spectral Smearing**
 
-This is a fork of the original DtBlkFx by Darrell Tam. The original source was
-not ready for public consumption. I have spent a considerable amount of time
-getting this ready for a Github release.
+## Features
+- **Universal Support**: Native compatibility for both Apple Silicon (M1/M2/M3) and Intel processors.
+- **Modern GUI**: Rebuilt user interface using the JUCE framework.
+- **Stereo Processing**: True stereo operation for all effects.
+- **Ad-hoc Signed**: Ready for local development and use in DAWs like Ableton Live.
 
-Despite a major overhaul of the project structure, I have only made very small
-changes to the source itself to enable x64 builds on windows. There is still a
-long way to go to making it clean and easy to hack on.
+## Installation
 
-That being said, anyone with a reasonable amount C++ experience shouldn't find
-it too difficult to get started. I am glad to accept pull requests and any other
-help I can get.
+1.  **Download/Build**: Ensure you have the `DtBlkFx_GUI.vst3` bundle.
+2.  **Install**: Copy the plugin to your VST3 directory:
+    ```bash
+    cp -R build/universal/DtBlkFx_GUI.vst3 ~/Library/Audio/Plug-Ins/VST3/
+    ```
+3.  **Rescan**: Open your DAW (e.g., Ableton Live) and rescan for plugins.
 
-## Usage examples
+## Building from Source
 
-* Precision parametric equalizing with sharp-roll off
-    * Set the frequencies so accurately that you can adjust individual harmonics
-      of a sound
-    * Frequency resolutions of up to 0.7 Hz
-* Harmonic based (or comb) filtering
-    * Set a fundamental frequency and adjust the level of it and its harmonics -
-      you can even remove the pitched component of a voice
-    * Active harmonic tracking - let DtBlkFx automatically track a sound and
-      adjust the level of it's harmonics
-* Various types of noise control
-    * Change the "contrast" between loud and soft frequencies
-    * Adjust only those frequencies below or above a particular threshold
-    * Clip frequencies above a particular threshold
-    * Sound smearing (phase randomizing)
-* Frequency shifting
-    * Harmonic shifting by a fixed number of notes
-    * Non-harmonic shifting by a fixed frequency
-    * Active harmonic repitch - the pitch of your sound is monitored and shifted
-      to a destination note (or matched to another channel)
-* Various methods of mixing left and right channels
-    * Standard Vocoding (frequency enveloping) - make your trumpet rap, string
-      section sing or synthesizer talk
-    * Harmonic based vocoding - harmonics in one channel are power-matched to
-      those in the other (or some predefined waveforms) for a new vocoding sound
-    * Convolution-like mixing
-    * 2 new mixing algorithms
-* Frequency masking
-    * A harmonic or threshold mask may be set for any effect (apart from
-      vocoding) - for example only shift frequencies that are below the
-      threshold
+### Prerequisites
+- **CMake** (3.19+)
+- **Xcode** (or Command Line Tools)
+- **vcpkg** (included as a submodule)
 
-You can select up to 8 of the above effects to be run in series! Combining the
-effects in this way allows you to make completely new and surprising sounds.
+### Build Instructions
+
+1.  **Clone the repository**:
+    ```bash
+    git clone --recursive https://github.com/yourusername/dtblkfx_mac.git
+    cd dtblkfx_mac
+    ```
+
+2.  **Run the Universal Build Script**:
+    This script handles dependency installation (via vcpkg), building for both x86_64 and arm64, creating a universal binary, and signing it.
+    ```bash
+    ./build_universal.sh
+    ```
+
+3.  **Output**:
+    The built plugin will be located at:
+    `build/universal/DtBlkFx_GUI.vst3`
+
+## Usage
+- **Mix Back**: Controls the balance between the original and processed signal.
+- **Delay**: Adds a delay to the processed signal.
+- **FFT Length**: Adjusts the size of the FFT window (frequency resolution vs. time resolution).
+- **Overlap**: Controls the overlap of FFT windows (smoother sound vs. CPU usage).
+- **Effect Parameters**:
+    - **Freq A/B**: Frequency range for the effect.
+    - **Amp**: Amplitude of the effect.
+    - **Val**: Effect-specific parameter.
+
+## License
+This project is licensed under the GNU General Public License v2.0 (or later). See `COPYING` for details.
+
+## Credits
+- **Original Author**: Darrell Tam
+- **macOS/JUCE Port**: haiori

@@ -1,1 +1,32 @@
+# Build directories
 /build
+/build_*/
+/bin/
+/lib/
+
+# CMake
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+install_manifest.txt
+*.cmake
+!modules/vcpkg/scripts/buildsystems/vcpkg.cmake
+
+# JUCE
+JuceLibraryCode/
+*.jucer
+
+# IDE / Editor
+.vscode/
+.idea/
+*.xcodeproj/
+*.xcworkspace/
+*.swp
+*.swo
+.DS_Store
+
+# VST3
+*.vst3/
+
+# Logs
+*.log

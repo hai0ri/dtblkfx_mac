@@ -39,16 +39,16 @@ add_subdirectory(modules/juce)
 # Check the readme at `docs/CMake API.md` in the JUCE repo for the full list.
 
 juce_add_plugin(DtBlkFx
-    PRODUCT_NAME "DtBlkFx"                      # The name of the final executable, which can differ from the target name
+    PRODUCT_NAME "DtBlkFx_GUI"                      # The name of the final executable, which can differ from the target name
     # VERSION ...                               # Set this if the plugin version is different to the project version
-    COMPANY_NAME "DtBlkFx"
+    COMPANY_NAME "haiori"
     # COMPANY_WEBSITE
     # COMPANY_EMAIL
     # COMPANY_COPYRIGHT
     # PLUGIN_NAME                               # What is displayed in DAW
     # VST3_CATEGORIES
     PLUGIN_MANUFACTURER_CODE DtBl               # A four-character manufacturer id with at least one upper-case character
-    PLUGIN_CODE DtBl                            # A unique four-character plugin id with at least one upper-case character
+    PLUGIN_CODE DtB2                            # A unique four-character plugin id with at least one upper-case character
     FORMATS VST3                                # The formats to build. Valid values are: Standalone Unity VST3 AU AUv3 AAX VST
     # ICON_BIG ...                              # ICON_* arguments specify a path to an image file to use as an icon for the Standalone
     # ICON_SMALL ...
@@ -57,6 +57,12 @@ juce_add_plugin(DtBlkFx
     NEEDS_MIDI_OUTPUT FALSE                     # Does the plugin need midi output?
     IS_MIDI_EFFECT FALSE                        # Is this plugin a MIDI effect?
     # EDITOR_WANTS_KEYBOARD_FOCUS TRUE/FALSE    # Does the editor need keyboard focus?
+    # EDITOR_WANTS_KEYBOARD_FOCUS TRUE/FALSE    # Does the editor need keyboard focus?
+)
+
+juce_add_binary_data(DtBlkFxAssets
+    SOURCES
+        dtblkfx_src/dtblkfx_logo.png
 )
 
 # `juce_generate_juce_header` will create a JuceHeader.h for a given target, which will be generated
@@ -68,6 +74,7 @@ juce_add_plugin(DtBlkFx
 # juce_generate_juce_header(AudioPluginExample)
 
 find_package(FFTW3 CONFIG REQUIRED)
+find_package(FFTW3f CONFIG REQUIRED)
 
 # `target_sources` adds source files to a target. We pass the target that needs the sources as the
 # first argument, then a visibility parameter for the sources (PRIVATE is normally best practice,
@@ -75,9 +82,29 @@ find_package(FFTW3 CONFIG REQUIRED)
 # that will be built into the target. This is a standard CMake command.
 
 target_sources(DtBlkFx PRIVATE
-    src/DtBlkFxEditor.cpp
     src/DtBlkFxProcessor.cpp
+    src/DtBlkFxEditor.cpp
+    src/core/DtBlkFx.cpp
+    src/core/FxRun1_0.cpp
+    src/core/FxState1_0.cpp
+    # src/core/GlobalCtrl.cpp
+    src/core/GlobalData.cpp
+    # src/core/Spectrogram.cpp
+    src/core/fftw_support.cpp
+    src/core/rfftw_float.cpp
+    src/core/fft_frac_shift.cpp
+    src/core/misc_stuff.cpp
+    src/core/NoteFreq.cpp
+    # src/core/PixelFreqBin.cpp
+    src/core/sweep1_coeff.cpp
+    src/core/sweep2_coeff.cpp
+    src/core/sweep3_coeff.cpp
+    src/core/sweep4_coeff.cpp
+    src/core/sweep5_coeff.cpp
 )
+
+target_include_directories(DtBlkFx PRIVATE src/core)
+add_definitions(-DSTEREO)
 
 # `target_compile_definitions` adds some preprocessor definitions to our target. In a Projucer
 # project, these might be passed in the 'Preprocessor Definitions' field. JUCE modules also make use
@@ -94,6 +121,11 @@ target_compile_definitions(DtBlkFx
     JUCE_WEB_BROWSER=0  # If you remove this, add `NEEDS_WEB_BROWSER TRUE` to the `juce_add_plugin` call
     JUCE_USE_CURL=0     # If you remove this, add `NEEDS_CURL TRUE` to the `juce_add_plugin` call
     JUCE_VST3_CAN_REPLACE_VST2=0
+)
+
+target_include_directories(DtBlkFx PRIVATE
+    src
+    src/core
 )
 
 # If your target needs extra binary assets, you can add them here. The first argument is the name of
@@ -114,16 +146,26 @@ target_compile_definitions(DtBlkFx
 target_link_libraries(DtBlkFx PRIVATE
     # JUCE Modules
     juce::juce_audio_utils
+    juce::juce_dsp
 
     # Binary data
     # AudioPluginData # If we'd created a binary data target, we'd link to it here
 
     # Recommended flags
     juce::juce_recommended_warning_flags
+    juce::juce_dsp
+    juce::juce_gui_basics
+    juce::juce_gui_extra
+    FFTW3::fftw3
+    FFTW3::fftw3f
     juce::juce_recommended_config_flags
     juce::juce_recommended_lto_flags
-
-    FFTW3::fftw3
 )
+
+target_link_libraries(DtBlkFx PUBLIC DtBlkFxAssets)
+
+target_link_libraries(DtBlkFx_VST3 PRIVATE DtBlkFxAssets)
+
+target_include_directories(DtBlkFx PRIVATE ${CMAKE_BINARY_DIR}/juce_binarydata_DtBlkFxAssets/JuceLibraryCode)
 
 target_compile_features(DtBlkFx PRIVATE cxx_std_17)
